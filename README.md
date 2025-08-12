@@ -31,5 +31,11 @@ Built with **Spring Boot**, **REST APIs**, and **MySQL/PostgreSQL**.
 - **API Testing**: Postman / Swagger
 - **Others**: Lombok, ModelMapper
 
-# Link for local swagger url
-# http://localhost:8080/swagger-ui/index.html#/   
+
+## 📖 API Documentation (Swagger UI)
+
+Easily explore and test all backend endpoints using the integrated Swagger UI:
+
+👉 [Open Swagger UI in your browser](http://localhost:8080/api/swagger-ui/index.html#/)
+
+> **Tip:** Make sure your backend server is running locally before opening the link above.
