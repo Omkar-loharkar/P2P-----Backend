@@ -1,9 +1,9 @@
-package com.example.ecommerce.service.Cart;
+package com.p2p.ecomm.service;
 
-import com.example.ecommerce.model.Cart.CartItem;
-import com.example.ecommerce.model.User.User;
-import com.example.ecommerce.repository.CartItemRepository;
-import com.example.ecommerce.repository.UserRepository;
+import com.p2p.ecomm.model.CartItem;
+import com.p2p.user.model.User;
+import com.p2p.ecomm.repository.CartItemRepository;
+import com.p2p.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

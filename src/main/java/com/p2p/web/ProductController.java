@@ -1,7 +1,7 @@
-package com.example.ecommerce.controller;
+package com.p2p.web;
 
-import com.example.ecommerce.model.Product.Product;
-import com.example.ecommerce.repository.ProductRepository;
+import com.p2p.ecomm.model.Product;
+import com.p2p.ecomm.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

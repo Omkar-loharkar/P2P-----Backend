@@ -1,8 +1,8 @@
-package com.example.ecommerce.service.User;
+package com.p2p.user.service;
 
-import com.example.ecommerce.model.User.User;
-import com.example.ecommerce.repository.UserRepository;
-import com.example.ecommerce.security.JwtUtil;
+import com.p2p.user.model.User;
+import com.p2p.user.repository.UserRepository;
+import com.p2p.user.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

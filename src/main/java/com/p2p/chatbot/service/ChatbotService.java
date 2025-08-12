@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.ChatBot;
+package com.p2p.chatbot.service;
 
 import org.springframework.stereotype.Service;
 

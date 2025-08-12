@@ -1,6 +1,6 @@
-package com.example.ecommerce.repository;
+package com.p2p.ecomm.repository;
 
-import com.example.ecommerce.model.Product.Product;
+import com.p2p.ecomm.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {

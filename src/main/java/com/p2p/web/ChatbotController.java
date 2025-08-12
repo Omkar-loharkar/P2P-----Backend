@@ -1,6 +1,6 @@
-package com.example.ecommerce.controller;
+package com.p2p.web;
 
-import com.example.ecommerce.service.ChatBot.ChatbotService;
+import com.p2p.chatbot.service.ChatbotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;

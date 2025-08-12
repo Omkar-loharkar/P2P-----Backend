@@ -1,6 +1,6 @@
-package com.example.ecommerce.controller;
+package com.p2p.web;
 
-import com.example.ecommerce.service.User.AuthService;
+import com.p2p.user.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
