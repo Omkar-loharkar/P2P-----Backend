@@ -1,4 +1,4 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.entity;
 
 import jakarta.persistence.*;
 
@@ -12,6 +12,11 @@ public class Product {
     private double price;
     private String image;
     private String description;
+    private String expiryDate;
+    private String mfgDate;
+    private String batchNo;
+    private String mrp;
+
 
     // Getters and setters
     public Long getId() { return id; }
@@ -24,4 +29,12 @@ public class Product {
     public void setImage(String image) { this.image = image; }
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+    public String getExpiryDate() { return expiryDate; }
+    public void setExpiryDate(String expiryDate) { this.expiryDate = expiryDate; }
+    public String getMfgDate() { return mfgDate; }
+    public void setMfgDate(String mfgDate) { this.mfgDate = mfgDate; }
+    public String getBatchNo() { return batchNo; }
+    public void setBatchNo(String batchNo) { this.batchNo = batchNo; }
+    public String getMrp() { return mrp; }
+    public void setMrp(String mrp) { this.mrp = mrp; }
 } 

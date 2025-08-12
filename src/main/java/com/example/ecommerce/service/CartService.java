@@ -1,7 +1,7 @@
 package com.example.ecommerce.service;
 
-import com.example.ecommerce.model.CartItem;
-import com.example.ecommerce.model.User;
+import com.example.ecommerce.model.entity.CartItem;
+import com.example.ecommerce.model.entity.User;
 import com.example.ecommerce.repository.CartItemRepository;
 import com.example.ecommerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

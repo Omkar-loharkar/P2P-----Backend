@@ -1,7 +1,9 @@
 package com.example.ecommerce.controller;
 
-import com.example.ecommerce.model.Product;
+import com.example.ecommerce.model.domain.ProductDO;
+import com.example.ecommerce.model.entity.Product;
 import com.example.ecommerce.repository.ProductRepository;
+import com.example.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -10,12 +12,21 @@ import java.util.List;
 @RequestMapping("/api/products")
 @CrossOrigin(origins = "*")
 public class ProductController {
+
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private ProductService productService;
 
     @GetMapping
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @PostMapping
+    public  List<Product> SaveAllProducts(List<ProductDO> products) {
+      return  productService.addMiultipleProducts(products);
     }
 
     @GetMapping("/{id}")
