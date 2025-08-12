@@ -21,7 +21,10 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/chatbot").permitAll()
+                .requestMatchers("/api/auth/**", "/api/chatbot",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/api/users/**").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
