@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/auth/**", "/api/chatbot",
                         "/swagger-ui/**",
                         "/v3/api-docs/**",
-                        "/api/users/**").permitAll()
+                        "/api/users/**","/api/retailstore/products/**").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
