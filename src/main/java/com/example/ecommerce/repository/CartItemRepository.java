@@ -1,7 +1,7 @@
 package com.example.ecommerce.repository;
 
-import com.example.ecommerce.model.CartItem;
-import com.example.ecommerce.model.User;
+import com.example.ecommerce.model.Cart.CartItem;
+import com.example.ecommerce.model.User.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
