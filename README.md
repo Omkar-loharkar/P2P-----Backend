@@ -1,3 +1,21 @@
+---
+
+## 🚀 Quick Start: Dev Profile & Debug Logs
+
+Add these when running your app:
+
+- For dev profile:
+	--spring.profiles.active=dev
+
+- For debug logs:
+	--debug
+	(or use --logging.level.root=DEBUG)
+
+**Example:**
+
+		java -jar your-app.jar --spring.profiles.active=dev --debug
+
+You can also add these in your IDE's run configuration.
 Imp Notes 
 1. Create a branch Having Initial as 1.DEV
 2. Alreast 1 Approval Needed for PR merge
