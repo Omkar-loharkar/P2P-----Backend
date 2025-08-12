@@ -1,34 +1,43 @@
 package com.p2p.web;
 
-import com.p2p.ecomm.model.CartItem;
+import com.p2p.ecomm.model.Cart;
+import com.p2p.ecomm.model.Item;
 import com.p2p.ecomm.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cart")
 @CrossOrigin(origins = "*")
 public class CartController {
+
     @Autowired
     private CartService cartService;
 
-    @GetMapping
-    public List<Map<String, Number>> getCart(Authentication authentication) {
+    @GetMapping("/{cartType}")
+    public Cart getCart(Authentication authentication, @RequestHeader String cartType) {
         String email = (String) authentication.getPrincipal();
-        List<CartItem> items = cartService.getCart(email);
-//        return items.stream().map(item -> Map.of(
-//            "id", item.getProductId(),
-//            "qty", item.getQuantity()
-//        )).collect(java.util.stream.Collectors.toList());
-        return null;
+        return cartService.getCart(email, cartType);
+    }
+
+    @GetMapping
+    public List<Cart> getAllCart(Authentication authentication) {
+        String email = (String) authentication.getPrincipal();
+        return cartService.getAllCart(email);
     }
 
     @PostMapping
-    public void setCart(@RequestBody List<Map<String, Object>> items, Authentication authentication) {
+    public Cart createCart(@RequestBody Cart cart, Authentication authentication) {
         String email = (String) authentication.getPrincipal();
-        cartService.setCart(email, items);
+        return cartService.createCart(email, cart);
+    }
+
+    @PostMapping("/items")
+    public List<Item> createCartItems(@RequestBody List<Item> items, Authentication authentication) {
+        String email = (String) authentication.getPrincipal();
+        return cartService.createCartItem(email, items);
     }
 } 
