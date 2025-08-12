@@ -30,3 +30,6 @@ Built with **Spring Boot**, **REST APIs**, and **MySQL/PostgreSQL**.
 - **Build Tool**: Maven
 - **API Testing**: Postman / Swagger
 - **Others**: Lombok, ModelMapper
+
+# Link for local swagger url
+# http://localhost:8080/swagger-ui/index.html#/   
