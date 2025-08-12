@@ -1,34 +1,80 @@
 package com.p2p.web;
 
-import com.p2p.ecomm.model.CartItem;
+import com.p2p.ecomm.model.Cart;
+import com.p2p.ecomm.model.Item;
 import com.p2p.ecomm.service.CartService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cart")
 @CrossOrigin(origins = "*")
+@Tag(name = "Cart", description = "API for managing user shopping carts and items.")
 public class CartController {
+
     @Autowired
     private CartService cartService;
 
+    @GetMapping("/{cartType}")
+    @Operation(summary = "Get a specific cart", description = "Retrieves a single cart for the authenticated user based on cart type.")
+    public Cart getCart(
+            @RequestParam @Parameter(description = "AuthToken", required = false) Authentication authtoken,
+            @RequestHeader @Parameter(description = "The type of cart (e.g., 'primary', 'wishlist')") String cartType
+    ) {
+        String email = (String) authtoken.getPrincipal();
+        return cartService.getCart(email, cartType);
+    }
+
     @GetMapping
-    public List<Map<String, Number>> getCart(Authentication authentication) {
-        String email = (String) authentication.getPrincipal();
-        List<CartItem> items = cartService.getCart(email);
-//        return items.stream().map(item -> Map.of(
-//            "id", item.getProductId(),
-//            "qty", item.getQuantity()
-//        )).collect(java.util.stream.Collectors.toList());
-        return null;
+    @Operation(summary = "Get all carts", description = "Retrieves a list of all carts for the authenticated user.")
+    public List<Cart> getAllCart(@RequestParam @Parameter(description = "AuthToken", required = false) Authentication authtoken) {
+        String email = (String) authtoken.getPrincipal();
+        return cartService.getAllCart(email);
     }
 
     @PostMapping
-    public void setCart(@RequestBody List<Map<String, Object>> items, Authentication authentication) {
-        String email = (String) authentication.getPrincipal();
-        cartService.setCart(email, items);
+    @Operation(summary = "Create a new cart", description = "Creates a new cart for the authenticated user.")
+    public Cart createCart(
+            @RequestParam @Parameter(description = "AuthToken", required = false) Authentication authtoken,
+            @RequestBody(
+                    description = "The new cart object to be created.",
+                    required = true,
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = Cart.class)
+                    )
+            ) Cart cart
+    ) {
+        String email = (String) authtoken.getPrincipal();
+        return cartService.createCart(email, cart);
     }
-} 
+
+    @PostMapping("/items")
+    @Operation(summary = "Add items to a cart", description = "Adds a list of items to the authenticated user's cart.")
+    public List<Item> createCartItems(
+            @RequestParam @Parameter(description = "AuthToken", required = false) Authentication authtoken,
+            @RequestBody(
+                    description = "A list of items to be added to the cart.",
+                    required = true,
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(
+                                    implementation = Item.class,
+                                    example = "[{\"quantity\": 2.0, \"properties\": {\"color\": \"red\", \"size\": \"L\"}}, {\"quantity\": 1.0, \"properties\": {\"color\": \"blue\", \"size\": \"M\"}}]"
+                            )
+                    )
+            ) List<Item> items
+    ) {
+        String email = (String) authtoken.getPrincipal();
+        return cartService.createCartItem(email, items);
+    }
+}
