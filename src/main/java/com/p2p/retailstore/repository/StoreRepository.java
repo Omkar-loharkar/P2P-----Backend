@@ -1,4 +1,6 @@
 package com.p2p.retailstore.repository;
 
-public class PurchaseRepository {
+public class StoreRepository {
+
+
 }
