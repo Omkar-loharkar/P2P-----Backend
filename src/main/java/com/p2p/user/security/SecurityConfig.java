@@ -1,4 +1,4 @@
-package com.example.ecommerce.security;
+package com.p2p.user.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

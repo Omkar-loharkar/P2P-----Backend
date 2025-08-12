@@ -1,19 +1,22 @@
-package com.example.ecommerce.model.Product;
+package com.p2p.user.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "products")
+@Table(name = "users")
 @Getter
 @Setter
-public class Product {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    private double price;
-    private String image;
-    private String description;
+
+    @Column(unique = true)
+    private String email;
+
+    private String password;
 } 

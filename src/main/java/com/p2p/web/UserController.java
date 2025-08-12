@@ -1,7 +1,7 @@
-package com.example.ecommerce.controller;
+package com.p2p.web;
 
-import com.example.ecommerce.model.User.User;
-import com.example.ecommerce.repository.UserRepository;
+import com.p2p.user.model.User;
+import com.p2p.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;

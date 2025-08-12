@@ -1,6 +1,6 @@
-package com.example.ecommerce.model.Cart;
+package com.p2p.ecomm.model;
 
-import com.example.ecommerce.model.User.User;
+import com.p2p.user.model.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

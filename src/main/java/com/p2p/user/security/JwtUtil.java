@@ -1,4 +1,4 @@
-package com.example.ecommerce.security;
+package com.p2p.user.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

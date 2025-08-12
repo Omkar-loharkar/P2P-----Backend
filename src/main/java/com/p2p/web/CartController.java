@@ -1,7 +1,7 @@
-package com.example.ecommerce.controller;
+package com.p2p.web;
 
-import com.example.ecommerce.model.Cart.CartItem;
-import com.example.ecommerce.service.Cart.CartService;
+import com.p2p.ecomm.model.CartItem;
+import com.p2p.ecomm.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
