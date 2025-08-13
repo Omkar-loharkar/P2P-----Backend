@@ -1,0 +1,17 @@
+package com.p2p.retailstore.model.domain.Response;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@Getter
+@Setter
+public class PurchaseInvoiceResponseDTO {
+    private Long id;
+    private String invoiceNumber;
+    private LocalDate invoiceDate;
+    private String wholesalerName;
+    private List<PurchaseItemResponseDTO> items;
+}
