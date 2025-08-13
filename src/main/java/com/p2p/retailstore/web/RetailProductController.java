@@ -7,8 +7,8 @@ import com.p2p.retailstore.model.domain.Response.RetailProductResponseDTO;
 import com.p2p.retailstore.service.RetailProductService;
 import com.p2p.user.security.JwtUtil;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,14 +17,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/retailstore/products")
 @CrossOrigin(origins = "*")
-public class RetailStoreController {
+@Tag(name = "Retail Product")
+public class RetailProductController {
 
     private final RetailProductService service;
 
     @Autowired
     private JwtUtil jwtUtil;;
 
-    public RetailStoreController(RetailProductService service) {
+    public RetailProductController(RetailProductService service) {
         this.service = service;
     }
 
