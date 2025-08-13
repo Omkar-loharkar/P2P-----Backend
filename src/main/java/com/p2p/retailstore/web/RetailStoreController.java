@@ -1,10 +1,12 @@
 package com.p2p.retailstore.web;
 
-import com.p2p.ecomm.model.CartItem;
 import com.p2p.ecomm.service.CartService;
 import com.p2p.retailstore.model.domain.Request.RetailProductRequestDTO;
 import com.p2p.retailstore.model.domain.Response.RetailProductResponseDTO;
 import com.p2p.retailstore.service.RetailProductService;
+import com.p2p.user.security.JwtUtil;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Description;
@@ -20,6 +22,9 @@ import java.util.Map;
 public class RetailStoreController {
 
     private final RetailProductService service;
+
+    @Autowired
+    private JwtUtil jwtUtil;;
 
     public RetailStoreController(RetailProductService service) {
         this.service = service;
@@ -39,6 +44,8 @@ public class RetailStoreController {
     description = "This API adds details of product master")
     @PostMapping
     public RetailProductResponseDTO create( @RequestHeader("token") String token, @RequestBody RetailProductRequestDTO dto) {
+        Claims auth = jwtUtil.parseToken(token);
+        String email =auth.getSubject();
         return service.createRetailProduct(dto);
     }
 

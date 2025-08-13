@@ -1,6 +1,8 @@
 package com.p2p.ecomm.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Map;
 @Entity
 @Table(name = "cart")
 @IdClass(CartId.class)
+@Getter
+@Setter
 public class Cart implements Serializable {
 
     @Id

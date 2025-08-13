@@ -46,6 +46,8 @@ public class CartService {
 
     public Cart createCart(String email, Cart cart) {
         User user = userRepository.findByEmail(email).orElse(null);
+        cart.setCartType("USER");
+        cart.setUserId(1L);
         return cartRepository.save(cart);
     }
 
