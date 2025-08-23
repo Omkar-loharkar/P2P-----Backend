@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,5 +23,5 @@ public class Cart implements Serializable {
     private String cartType;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<Item> items;
+    private List<Item> items = new ArrayList<>();
 }

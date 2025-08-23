@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,8 +21,8 @@ public class Item implements Serializable {
 
     private double quantity;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private List<Sku> sku;
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<Sku> sku = new ArrayList<>();;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id", referencedColumnName = "deliveryId")
