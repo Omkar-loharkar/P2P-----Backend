@@ -8,8 +8,8 @@ spring:
     active: dev
   datasource:
     url: jdbc:mysql://localhost:3306/ecommerce_db?useSSL=false&serverTimezone=UTC
-    username: fahad
-    password: root
+    username: root
+    password: Omkar@909
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
